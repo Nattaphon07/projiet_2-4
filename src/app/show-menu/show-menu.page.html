@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title>อาหารหวาน</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="custom-background" >
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ menuName }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="selectedImage">
+        <img [src]="selectedImage" alt="Selected Image" style="width: 100%;" />
+      </div>
+      <p>ราคา: {{ price }} บาท</p>
+      <p>หมวดหมู่: {{ category }}</p>
+      <p>ประเภทอาหาร: {{ foodType }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" (click)="goBack()">ย้อนกลับ</ion-button>
+</ion-content>

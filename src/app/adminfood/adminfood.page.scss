@@ -1,0 +1,67 @@
+.custom-background {
+    --background: #e9dca9;
+    /* Change this color as needed */
+  }
+  .center-text-container {
+
+    display: flex;
+    justify-content: center;
+    /* จัดข้อความให้อยู่ตรงกลางในแนวนอน */
+    align-items: center;
+   
+    /* จัดข้อความให้อยู่ตรงกลางในแนวตั้ง */
+    height: 150px;
+    /* ตัวอย่างความสูงของบล็อค */
+    color: #000;
+    background-color: #bfa16d;
+    margin-top: -15%;
+    /* สีพื้นหลังเหมือนในรูป */
+    width: 450px;
+    border-radius: 10px;
+    /* ขอบมุมโค้ง */
+  
+  }
+  .center-text {
+    display: flex;
+    justify-content: center;
+    /* จัดข้อความให้อยู่ตรงกลางในแนวนอน */
+    align-items: center;
+   
+margin-left: -8%;
+margin-top:2%;
+    text-align: center;
+    font-size: 30px;
+    /* ขนาดฟอนต์ปรับได้ตามความต้องการ */
+    font-family: 'Prompt', sans-serif;
+    /* ตัวอย่างฟอนต์ */
+  }
+  ion-content {
+    background-color: #f8ecd4; // เปลี่ยนสีพื้นหลังให้เป็นสีครีม
+  }
+  
+  ion-button {
+    --background: rgb(254, 254, 254); // เปลี่ยนสีปุ่มเป็นสีเขียว
+  }
+  
+  img {
+    border-radius: 8px;
+    margin-top: -50%;
+  }
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 100%; /* หรือขนาดที่ต้องการ */
+    height: 300px; /* ขนาดสูงของรูปภาพ */
+    overflow: hidden; /* ซ่อนส่วนที่เกินออกมาจากขนาดกำหนด */
+    border: 1px solid #ddd; /* เส้นขอบ (สามารถลบออกได้) */
+  }
+  
+  .image-container ion-img {
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ปรับขนาดรูปให้พอดีกับ container */
+  }
+  

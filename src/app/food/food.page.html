@@ -1,0 +1,70 @@
+<ion-content [fullscreen]="true" class="custom-background">
+  <ion-label>
+    <img
+      src="https://media.discordapp.net/attachments/1249259331237449748/1282585092493148201/451300567_122121982520327244_2900240197134810930_n-removebg-preview.png?ex=66e13573&is=66dfe3f3&hm=3f8aa1e7f0b8075f0f82cf7e14a91aad19de9716acaac6f28184089d6eb4db8a&=&format=webp&quality=lossless&width=625&height=625"
+      alt="" style="display: flex;
+      justify-content: center;
+      /* จัดข้อความให้อยู่ตรงกลางในแนวนอน */
+      align-items: center;width: 100px; height: 100px; margin-left: 38%;margin-top: 5%;">
+    <!-- ส่วนอื่นๆ ของหน้า Home -->
+    <ion-button style="margin-left: 75%;margin-top: -45%;" *ngIf="isAdmin" (click)="adminfood()">เพิ่มเมนู
+      </ion-button>
+
+
+    <div style="margin-top: -35%;" class="center-text-container">
+
+      <p class="center-text">เลือกประเภทของเมนู</p>
+
+    </div>
+
+  </ion-label>
+
+  
+  <div>
+    <ion-button style="margin-left: 3%;margin-top: -80%;" (click)="goBack()">◀</ion-button>
+  </div>
+
+  
+  <div>
+    <img 
+      src= "../../assets/img/have28.png"
+      alt=""
+      style="width:130px; height:130px; margin-left: 34%; margin-top: 5%; justify-content: center; align-items: center;">
+
+    <!-- ใช้ Flexbox จัดปุ่มให้อยู่ตรงกลาง -->
+    <div class="button-container1"  >
+      <button  class="custom-button1" (click)="foodcrod()">อาหารคาว</button>
+    </div>
+  </div>
+  <div>
+    <img
+      src="../../assets/img/have29.png"
+      alt=""
+      style="width:130px; height:130px; margin-left: 15%; margin-top: 5%; justify-content: center; align-items: center;">
+
+    <!-- ใช้ Flexbox จัดปุ่มให้อยู่ตรงกลาง -->
+    <div class="button-container"  >
+      <button  class="custom-button" (click)="showmenu()" >อาหารหวาน</button>
+    </div>
+  </div>
+
+  <div>
+    <img
+      src="../../assets/img/have30.png  "
+      alt=""
+      style="width:130px; height:130px; margin-left: 55%; display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: -190px">
+
+    <!-- ใช้ Flexbox จัดปุ่มให้อยู่ตรงกลาง -->
+    <div class="button-container2"  >
+      <button  class="custom-button" (click)="showmenu12wd()">เครื่องดื่ม</button>
+    </div>
+  </div>
+
+  <ion-button style="width: 100px;height: 50px;margin-top: 10%;margin-left: 70%;" color="danger" expand="full"
+    (click)="logout()">
+    Logout
+  </ion-button>
+</ion-content>

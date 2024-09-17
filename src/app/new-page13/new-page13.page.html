@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true" class="custom-background">
+  <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-progress-bar type="indeterminate" color="dark"></ion-progress-bar>
+
+  <ion-label>
+    <div class="center-text-container">
+      <p class="center-text">แอปพลิเคชัน แสดงรายการสินค้า ร้านที่บ้านเพื่อน</p>
+    </div>
+  </ion-label>
+
+  <img
+    src="../../assets/img/have32.png"
+    alt=""
+    style="width:130px; height:130px; margin-left: 34%; margin-top: 5%; justify-content: center; align-items: center;">
+
+  <!-- ใช้ Flexbox จัดปุ่มให้อยู่ตรงกลาง -->
+  <div class="button-container" (click)="goToNextPage()">
+    <button class="custom-button">รายการอาหาร</button>
+  </div>
+
+
+  <div  >
+    <img
+      src="../../assets/img/have33.png"
+      alt=""
+      style="width:130px; height:130px; margin-left: 34%; margin-top: 5%; justify-content: center; align-items: center;">
+
+    <!-- ใช้ Flexbox จัดปุ่มให้อยู่ตรงกลาง -->
+    <div class="button-container1"  >
+      <button  class="custom-button1">โปรโมชั่น</button>
+    </div>
+  </div>
+
+
+
+<div>
+  <button (click)="navigateToPage12()" style="width:60px; height:60px; margin-left: 80%; margin-top: 2%; justify-content: center; align-items: center; background-color: rgb(0, 0, 0); border-radius: 35px;">
+    <ion-icon style="height: 40px;width: 40px;" name="person"></ion-icon>
+  </button>
+  
+  </div>
+  <ion-button style="margin-left: 3%;margin-top: -305%;" (click)="goBack()">◀</ion-button>
+</ion-content>

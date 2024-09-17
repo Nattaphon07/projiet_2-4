@@ -1,0 +1,82 @@
+<ion-content [fullscreen]="true" class="custom-background" padding>
+  <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-progress-bar type="indeterminate" color="dark"></ion-progress-bar>
+
+  <ion-grid class="ion-padding" style="margin-top: 2%;">
+    <ion-row>
+      <ion-col size="auto">
+        <ion-button (click)="goBack()">◀</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label style="font-size: 15px;">เลือกรูปภาพ:</ion-label>
+          <ion-button (click)="triggerFileInput()">เลือกไฟล์</ion-button>
+          <input #fileInput type="file" (change)="onFileChange($event)" accept="image/*" style="display: none;">
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="selectedImage">
+      <ion-col>
+        <ion-img [src]="selectedImage" alt="Selected Image"></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">ชื่อเมนู:</ion-label>
+          <ion-input [(ngModel)]="menuName" placeholder="ใส่ชื่อเมนู"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">ราคา:</ion-label>
+          <ion-input type="number" [(ngModel)]="price" placeholder="ใส่ราคา"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>หมวดหมู่:</ion-label>
+          <ion-select [(ngModel)]="category" placeholder="หมวดหมู่">
+            <ion-select-option value="หมวดหมู่1">1</ion-select-option>
+            <ion-select-option value="หมวดหมู่2">2</ion-select-option>
+            <ion-select-option value="หมวดหมู่3">3</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>ประเภทอาหาร:</ion-label>
+          <ion-select [(ngModel)]="foodType" placeholder="เลือกประเภทอาหาร">
+            <ion-select-option value="ของคาว">ของคาว</ion-select-option>
+            <ion-select-option value="ของหวาน">ของหวาน</ion-select-option>
+            <ion-select-option value="น้ำดื่ม">น้ำดื่ม</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-button expand="block" color="danger" size="large" (click)="submitForm()">ยืนยัน</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
