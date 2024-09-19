@@ -1,30 +1,25 @@
 <ion-content [fullscreen]="true" class="custom-background">
- 
 
-  <ion-img src="https://media.discordapp.net/attachments/1249259331237449748/1282585092493148201/451300567_122121982520327244_2900240197134810930_n-removebg-preview.png?ex=66e13573&is=66dfe3f3&hm=3f8aa1e7f0b8075f0f82cf7e14a91aad19de9716acaac6f28184089d6eb4db8a&=&format=webp&quality=lossless&width=625&height=625" alt="" style="width: 190px; height: 190px; margin-left: 28%; margin-top: 30%;"></ion-img>
-<br>
-   <ion-item style="display: flex;
-   justify-content: center;
-   /* จัดข้อความให้อยู่ตรงกลางในแนวนอน */
-   align-items: center;width: 300px;height: 150px;margin-left: 15%;">
-    <ion-label position="floating">ชื่อผู้ใช้</ion-label>
-    <ion-input type="text" [(ngModel)]="username"></ion-input>
-  </ion-item>
+    
+  <ion-button  name="return-down-back-outline"class="go-back-button" (click)="goBack()">ย้อนกลับ</ion-button>
+    <div class="container">
+      <ion-img src="../../assets/img/good.png" alt="Image" class="image"></ion-img>
+  
 
-  <ion-item style="display: flex;
-  justify-content: center;
-  /* จัดข้อความให้อยู่ตรงกลางในแนวนอน */
-  align-items: center;width: 300px;height: 150px;margin-left: 15%;margin-top: -15%;">
-    <ion-label position="floating">รหัสผ่าน</ion-label>
-    <ion-input type="password" [(ngModel)]="password"></ion-input>
-  </ion-item>
+      <ion-item class="input-item">
+        <ion-label position="floating">ชื่อผู้ใช้</ion-label>
+        <ion-input type="text" [(ngModel)]="username"></ion-input>
+      </ion-item>
+  
+      <ion-item class="input-item">
+        <ion-label position="floating">รหัสผ่าน</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+  
+      <ion-button class="login-button" color="light" expand="full" (click)="checkCredentials()">
+        LOGIN
+      </ion-button>
+    </div>
+  </ion-content>
+  
 
-  <ion-button class="custom-backgroundd" color="light" expand="full"
-    style="display: flex;
-    justify-content: center;
-    /* จัดข้อความให้อยู่ตรงกลางในแนวนอน */
-    align-items: center;width: 250px; height: 50px; font-size: 25px; margin: 20% auto;margin-bottom: -150px ;margin-top: -5%;"
-    (click)="checkCredentials()">
-    LOGIN
-  </ion-button>
-</ion-content>

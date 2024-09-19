@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'food3',
     loadChildren: () => import('./food3/food3.module').then(m => m.Food3PageModule)
   },
+  {
+    path: 'contact123',
+    loadChildren: () => import('./contact123/contact123.module').then( m => m.Contact123PageModule)
+  },
 
   // เส้นทางอื่น ๆ
 ];

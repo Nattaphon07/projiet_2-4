@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>โปรโมชั่น</ion-title>
+    <ion-buttons slot="start">
+      <ion-button expand="full" (click)="goBack()">ย้อนกลับ</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <!-- แสดงปุ่มเพิ่มเมนูเฉพาะเมื่อเป็นแอดมิน -->
+      <ion-button *ngIf="isAdmin" (click)="foodcrod()">เพิ่มเมนู</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="custom-background">
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>มาม่าไก่เผ็ดเกาหลี</ion-card-title>
+    </ion-card-header>
+    <img 
+      src= "../../assets/img/c14.jpg"
+      alt=""
+      style="width:320px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+  
+    <ion-card-content>
+      
+        <ion-label>
+      <h3 style="font-size: 18px;">ราคา: {{ 45 }} ลดราคาเหลือ <h1 style= "color: white;margin-left: 65%;font-size: 40px;justify-content: center; align-items: center; border: 2px solid white;text-align: center;box-shadow: 0px 0px 15px red;" > 30 บาท </h1></h3>
+    
+  </ion-label>
+      <p> หมวดหมู่: โปรโมชั่น </p>
+      <p>ประเภทอาหาร: อาหารคาว</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>นมสดโอริโอ้</ion-card-title>
+    </ion-card-header>
+    <img src="../../assets/img/o2.webp" alt=""
+      style="width:310px; height:350px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
+    <ion-card-content>
+      <h3 style="font-size: 18px;">ราคา: {{ 55 }} ลดราคาเหลือ <h1 style= "color: white;margin-left: 65%;font-size: 40px;justify-content: center; align-items: center; border: 2px solid white;text-align: center;box-shadow: 0px 0px 15px red;" > 45 บาท </h1></h3>
+      <p>หมวดหมู่: โปรโมชั่น </p>
+      <p>ประเภทอาหาร: เครื่องดื่ม</p>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>มาการอง (กล่องละ 40 บาท)</ion-card-title>
+    </ion-card-header>
+    <img 
+      src= "../../assets/img/d9.jpg"
+      alt=""
+      style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+  
+    <ion-card-content>
+      <h3 style="font-size: 18px;">ราคา: {{ 40 }} ลดราคาเหลือ <h1 style= "color: white;margin-left: 65%;font-size: 40px;justify-content: center; align-items: center; border: 2px solid white;text-align: center;box-shadow: 0px 0px 15px red;" > 30 บาท </h1></h3>
+      <p>หมวดหมู่: โปรโมชั่น</p>
+      <p>ประเภทอาหาร: อาหารคาว</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

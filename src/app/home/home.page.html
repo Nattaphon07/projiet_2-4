@@ -1,27 +1,19 @@
 <ion-content [fullscreen]="true" class="custom-background">
- 
     <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
   
     <!-- Your page content here -->
+    <div class="center-content">
+      <img src="../../assets/img/good.png" alt="" class="centered-image glowing-image">
+      
+      <ion-button class="custom-backgroundd centered-button glowing-button" color="light" expand="block" (click)="navigateToNewPage13()">
+        ลูกค้า
+      </ion-button>
   
-<ion-progress-bar type="indeterminate" color="dark"></ion-progress-bar>
-
-  <img
-    src="https://media.discordapp.net/attachments/1249259331237449748/1282585092493148201/451300567_122121982520327244_2900240197134810930_n-removebg-preview.png?ex=66e13573&is=66dfe3f3&hm=3f8aa1e7f0b8075f0f82cf7e14a91aad19de9716acaac6f28184089d6eb4db8a&=&format=webp&quality=lossless&width=625&height=625"
-    alt="" style="width: 190px; height: 190px; margin-left: 28%;margin-top: 30%;">
-    <ion-button class="custom-backgroundd" color="light" expand="full" (click)="navigateToNewPage13()"
-    style="width: 250px; height: 50px; font-size: 25px; margin-top: 10%; margin-left: 20%;">
-    ลูกค้า
-  </ion-button>
+      <ion-button class="custom-backgroundd centered-button glowing-button" color="light" expand="block" (click)="navigateToNewPage()">
+        แอดมิน
+      </ion-button>
+    </div>
+  </ion-content>
   
-
-  <ion-button class="custom-backgroundd" color="light" expand="full" (click)="navigateToNewPage()"
-  style="width: 250px;height: 50px;font-size: 25px; margin-top: 10%;margin-left: 20%;">
-
-  แอดมิน
-</ion-button>
-
-
-</ion-content>

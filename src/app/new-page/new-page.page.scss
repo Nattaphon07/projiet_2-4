@@ -1,7 +1,35 @@
 .custom-background {
-    --background: #BFA16D
-    ; /* Change this color as needed */
-  }
-  ion-button {
-    --background: rgb(254, 254, 254); // เปลี่ยนสีปุ่มเป็นสีเขียว
-  }
+  --background: #BFA16D;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 10px;
+}
+
+.image {
+  width: 190px;
+  height: 190px;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  margin-top: 150px;
+  align-self: flex-start;
+}
+
+.input-item {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 15px;
+}
+
+.login-button {
+  width: 100%;
+  max-width: 250px;
+  font-size: 25px;
+}

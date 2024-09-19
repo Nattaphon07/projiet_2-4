@@ -35,4 +35,7 @@ export class NewPage13Page implements OnInit {
   goToNextPage() {
     this.navCtrl.navigateForward('food'); // นำทางไปยังหน้า food อีกครั้ง
   }
+  goToNextPage546() {
+    this.navCtrl.navigateForward('contact123'); // นำทางไปยังหน้า food อีกครั้ง
+  }
 }

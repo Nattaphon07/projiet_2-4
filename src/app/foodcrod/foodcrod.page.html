@@ -1,32 +1,182 @@
-<ion-header >
-  <ion-toolbar >
+<ion-header>
+  <ion-toolbar>
+    <ion-title >อาหารคาว</ion-title>
+    <ion-buttons slot="start">
+      <ion-button expand="full" (click)="goBack()">ย้อนกลับ</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <!-- แสดงปุ่มเพิ่มเมนูเฉพาะเมื่อเป็นแอดมิน -->
+      <ion-button *ngIf="isAdmin" (click)="foodcrod()">เพิ่มเมนู</ion-button>
+    </ion-buttons>
  
-    <ion-title>อาหารคาว</ion-title>
+ 
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="custom-background" >
-  <ion-card>
+<ion-content class="custom-background">
+  <!-- แสดงข้อมูลเมนูที่เลือก -->
+  <ion-card >
     <ion-card-header>
-      <ion-card-title>{{ menuName }}</ion-card-title>
+      <ion-card-title>ข้าวหน้าไก่คาราเกะ</ion-card-title>
     </ion-card-header>
+    <img 
+      src= "../../assets/img/c12.jpg"
+      alt=""
+      style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
     <ion-card-content>
-      <div *ngIf="selectedImage">
-        <img [src]="selectedImage" alt="Selected Image" style="width: 100%;">
-      </div>
-      <p>ราคา: {{ price }} บาท</p>  
-      <p>หมวดหมู่: {{ category }}</p>
-      <p>ประเภทอาหาร: {{ foodType }}</p>
+      <h3 style="font-size: 18px;">ราคา: {{ 40 }} บาท</h3>
+      <p>หมวดหมู่: รายการอาหาร </p>
+      <p>ประเภทอาหาร: อาหารคาว</p>
     </ion-card-content>
   </ion-card>
 
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>มาม่าต้มยำสุดแซ่บ</ion-card-title>
+    </ion-card-header>
+    <img 
+      src= "../../assets/img/c13.jpg"
+      alt=""
+      style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
+    <ion-card-content>
+      <h3 style="font-size: 18px;">ราคา: {{ 35 }} บาท</h3>
+      <p>หมวดหมู่: รายการอาหาร </p>
+      <p>ประเภทอาหาร: อาหารคาว</p>
+    </ion-card-content>
+  </ion-card>
+
+
+<!-- แสดงรายการเมนูที่เลือก -->
+<!-- แสดงรายการเมนูที่เลือก -->
+
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>มาม่าไก่เผ็ดเกาหลี</ion-card-title>
+  </ion-card-header>
+  <img 
+    src= "../../assets/img/c14.jpg"
+    alt=""
+    style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
+  <ion-card-content>
+    <h3 style="font-size: 18px;">ราคา: {{ 45 }} บาท</h3>
+    <p>หมวดหมู่: รายการอาหาร </p>
+    <p>ประเภทอาหาร: อาหารคาว</p>
+  </ion-card-content>
+</ion-card>
+
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>ข้าวหน้าแฮมเบอร์</ion-card-title>
+  </ion-card-header>
+  <img 
+    src= "../../assets/img/c15.png"
+    alt=""
+    style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
+  <ion-card-content>
+    <h3 style="font-size: 18px;">ราคา: {{ 40 }} บาท</h3>
+    <p>หมวดหมู่: รายการอาหาร </p>
+    <p>ประเภทอาหาร: อาหารคาว</p>
+  </ion-card-content>
+</ion-card>
   
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>ปีกไก่ทอด (ชิ้นละ 10 บาท)</ion-card-title>
+  </ion-card-header>
+  <img 
+    src= "../../assets/img/f5.webp"
+    alt=""
+    style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
 
-  <!-- ปุ่มลบ -->
+  <ion-card-content>
+    <h3 style="font-size: 18px;">ราคา: {{ 10 }} บาท</h3>
+    <p>หมวดหมู่: รายการอาหาร </p>
+    <p>ประเภทอาหาร: อาหารคาว</p>
+  </ion-card-content>
+</ion-card>
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>น่องไก่ทอดสุดกรอบ (ชิ้นละ 10 บาท)</ion-card-title>
+  </ion-card-header>
+  <img 
+    src= "../../assets/img/c16.png"
+    alt=""
+    style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
 
-  
-  <!-- ปุ่มย้อนกลับ -->
-  <ion-button expand="full" (click)="goBack()">ย้อนกลับ</ion-button>
+  <ion-card-content>
+    <h3 style="font-size: 18px;">ราคา: {{ 60 }} บาท</h3>
+    <p>หมวดหมู่: รายการอาหาร </p>
+    <p>ประเภทอาหาร: อาหารคาว</p>
+  </ion-card-content>
+</ion-card>
 
+
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>ข้าวไข่เจียว/ไข่ดาว</ion-card-title>
+  </ion-card-header>
+  <img 
+    src= "../../assets/img/f1.jpg"
+    alt=""
+    style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
+  <ion-card-content>
+    <h3 style="font-size: 18px;">ราคา: {{ 30 }} บาท</h3>
+    <p>หมวดหมู่: รายการอาหาร </p>
+    <p>ประเภทอาหาร: อาหารคาว</p>
+  </ion-card-content>
+</ion-card>
+
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>เบอร์เกอร์ หมู/ไก่/แฮม </ion-card-title>
+  </ion-card-header>
+  <img 
+    src= "../../assets/img/f2.webp"
+    alt=""
+    style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
+  <ion-card-content>
+    <h3 style="font-size: 18px;">ราคา: {{ 35 }} บาท</h3>
+    <p>หมวดหมู่: รายการอาหาร </p>
+    <p>ประเภทอาหาร: อาหารคาว</p>
+  </ion-card-content>
+</ion-card>
+
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>แซนวิชแฮมชีส</ion-card-title>
+  </ion-card-header>
+  <img 
+    src= "../../assets/img/f3.webp"
+    alt=""
+    style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
+  <ion-card-content>
+    <h3 style="font-size: 18px;">ราคา: {{ 40 }} บาท</h3>
+    <p>หมวดหมู่: รายการอาหาร </p>
+    <p>ประเภทอาหาร: อาหารคาว</p>
+  </ion-card-content>
+</ion-card>
+
+<ion-card >
+  <ion-card-header>
+    <ion-card-title>ไส้กรอก (ถ้วยละ 30 บาท)</ion-card-title>
+  </ion-card-header>
+  <img 
+    src= "../../assets/img/f4.jpg"
+    alt=""
+    style="width:310px; height:300px; margin-left: 5%; margin-top: 5%; justify-content: center; align-items: center;">
+
+  <ion-card-content>
+    <h3 style="font-size: 18px;">ราคา: {{ 30 }} บาท</h3>
+    <p>หมวดหมู่: รายการอาหาร </p>
+    <p>ประเภทอาหาร: อาหารคาว</p>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>

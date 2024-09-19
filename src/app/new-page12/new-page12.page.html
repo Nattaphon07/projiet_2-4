@@ -1,38 +1,47 @@
 <ion-content [fullscreen]="true" class="custom-background">
   <div>
-    <ion-button style="margin-left: 5%;margin-top: -50%;" (click)="someMethod()">◀</ion-button>
+    <ion-button style=" justify-content: center;
+
+    align-items: center;margin-left: 6%;margin-top: -50%;" (click)="someMethod()">ย้อนกลับ</ion-button>
     <img
       src="../../assets/img/member-icon-png-6.jpg"
-      alt="" style="width: 120px; height: 120px; margin-left: 20%;margin-top: 5%;">
-    <h1 style="text-align: center;font-size: 35px;margin-top: -1%;">ข้อมูลของฉัน</h1>
+      alt="" style="width: 120px; height: 120px; margin-left: 5%;margin-top: 5%;">
+    <h1 style="text-align: center;font-size: 35px;margin-top: -1%;">ข้อมูลทางร้าน</h1>
   </div>
-  <ion-item>
-    <ion-label style="text-align: center;height: 400px;width: 150px;background-color: rgb(247, 247, 247);color: #000;">
-     
-      <h1 style="margin-top: 3%;font-size: 25px;">ช่องทางการติดต่อ</h1>
-    
-      <br>
-      <br>
-      
-      <br>
-      <div>
-        
-       <h1 style="margin-top: 3%;font-size: 25px;margin-left: 10%;">เบอร์โทร 0994630892</h1>
-      </div>
-      <br>
-      <br>
-      <div>
-        <h1 style="margin-top: 3%;font-size: 25px;margin-left: -6%;">ID line Bew1007</h1>
-      </div>
-      <br>
-      <br>
-      <div>
-        <h1 style="margin-top: 3%;font-size: 25px;margin-left: 2%;">Waranyu Kanyapan
-        </h1>
-      </div>
-
-    </ion-label>
-
-
-  </ion-item>
+  <ion-card style="background-color: #f5deb3; border-radius: 10px;">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <h2>ช่องทางการติดต่อ</h2>
+          </ion-col>
+        </ion-row>
+        <ion-row class="contact-item">
+          <ion-col size="2">
+            <ion-icon name="call" style="color: green; font-size: 30px;"></ion-icon>
+          </ion-col>
+          <ion-col size="10">
+            <p>เบอร์โทร 0953546413</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="contact-item">
+          <ion-col size="2">
+            <!-- แทนที่ด้วยรูปภาพไอคอน LINE -->
+            <img src="../../assets/img/line-icon-vector-22.png" style="width: 30px; height: 30px;" />
+          </ion-col>
+          <ion-col size="10">
+            <p>ID line 417lwyyr</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="contact-item">
+          <ion-col size="2">
+            <ion-icon name="logo-facebook" style="color: #3b5998; font-size: 30px;"></ion-icon>
+          </ion-col>
+          <ion-col size="10">
+            <p>ที่บ้านเพื่อน</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

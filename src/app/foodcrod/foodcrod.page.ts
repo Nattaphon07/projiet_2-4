@@ -1,102 +1,57 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
-
-// Interface สำหรับข้อมูลรายการเมนู
-interface MenuItem {
-  image: string | ArrayBuffer | null;
-  menuName: string;
-  price: number | null;
-  category: string;
-  foodType: string;
-}
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router'; // เพิ่มการนำเข้า Router
 
 @Component({
   selector: 'app-foodcrod',
   templateUrl: './foodcrod.page.html',
   styleUrls: ['./foodcrod.page.scss'],
 })
-export class FoodcrodPage implements OnInit {
-  @ViewChild('fileInput', { static: false }) fileInput!: ElementRef<HTMLInputElement>;
-
+export class FoodcrodPage implements OnInit { // เปลี่ยนชื่อคอมโพเนนต์ให้ตรงกับที่ถูกใช้งาน
   selectedImage: string | ArrayBuffer | null = null;
   menuName: string = '';
   price: number | null = null;
   category: string = '';
   foodType: string = '';
-
-  items = [{
-      id: 1,
-      price: '',
-      category: '',
-      foodType: '',
-      selectedImage: '',
-  }];
+  menuList: any[] = [];
+  isAdmin: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router, // ใช้ Router
     private navCtrl: NavController,
-    private storage: Storage,
-    private router: Router
+    private storage: Storage
   ) {}
 
   async ngOnInit() {
     await this.storage.create();
+    await this.checkUserRole();
 
-    this.route.queryParams.subscribe(async params => {
+    const existingMenuList = await this.storage.get('menuList');
+    if (existingMenuList) {
+      this.menuList = existingMenuList;
+    }
+
+    this.route.queryParams.subscribe(params => {
       this.selectedImage = params['image'] || null;
       this.menuName = params['menuName'] || '';
       this.price = params['price'] ? Number(params['price']) : null;
       this.category = params['category'] || '';
       this.foodType = params['foodType'] || '';
 
-      if (!params['menuName']) {
-        const storedData = await this.storage.get('currentFormData');
-        if (storedData) {
-          this.selectedImage = storedData.selectedImage;
-          this.menuName = storedData.menuName;
-          this.price = storedData.price;
-          this.category = storedData.category;
-          this.foodType = storedData.foodType;
-        }
-      }
+      this.saveDataToStorage();
     });
   }
 
-  async goBack() {
-    await this.saveCurrentData();
-    this.navCtrl.navigateBack('/food');
+  async checkUserRole() {
+    const userRole = localStorage.getItem('userRole');
+    this.isAdmin = userRole === 'admin';
   }
 
-  onFileChange(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.selectedImage = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
-  }
-
-  triggerFileInput() {
-    this.fileInput.nativeElement.click();
-  }
-
-  async saveCurrentData() {
-    const currentData = {
-      selectedImage: this.selectedImage,
-      menuName: this.menuName,
-      price: this.price,
-      category: this.category,
-      foodType: this.foodType
-    };
-    await this.storage.set('currentFormData', currentData);
-  }
-
-  async saveData() {
-    const newItem: MenuItem = {
+  async saveDataToStorage() {
+    const newMenu = {
       image: this.selectedImage,
       menuName: this.menuName,
       price: this.price,
@@ -104,51 +59,15 @@ export class FoodcrodPage implements OnInit {
       foodType: this.foodType
     };
 
-    // ดึงข้อมูลที่จัดเก็บไว้จาก Storage
-    let storedData = await this.storage.get('menuData');
-    let categories: { [key: string]: MenuItem[] } = storedData || {};
-
-    // ตรวจสอบให้แน่ใจว่าหมวดหมู่มีอยู่
-    if (!categories[this.category]) {
-      categories[this.category] = [];
-    }
-
-    // อัปเดตรายการที่มีอยู่หรือเพิ่มรายการใหม่
-    const existingIndex = categories[this.category].findIndex((item: MenuItem) => item.menuName === newItem.menuName);
-    if (existingIndex > -1) {
-      categories[this.category][existingIndex] = newItem; // อัปเดตรายการที่มีอยู่
-    } else {
-      categories[this.category].push(newItem); // เพิ่มรายการใหม่
-    }
-
-    // บันทึกข้อมูลที่อัปเดตลงใน Storage
-    await this.storage.set('menuData', categories);
-
-    // ลบข้อมูลชั่วคราว
-    await this.storage.remove('currentFormData');
-
-    // รีเซ็ตฟิลด์ในฟอร์ม
-    this.selectedImage = null;
-    this.menuName = '';
-    this.price = null;
-    this.category = '';
-    this.foodType = '';
-
-    // นำทางไปยังหน้าที่ต้องการ
-    this.router.navigate(['/เพิ่มข้อมูลเพิ่มเติม']);
+    this.menuList.push(newMenu);
+    await this.storage.set('menuList', this.menuList);
   }
 
-  // ฟังก์ชันเพิ่มรายการใหม่
-  addNewItems(count: number) {
-    for (let i = 0; i < count; i++) {
-      const newItem = {
-        id: this.items.length + 1, // เพิ่ม ID ต่อจากรายการล่าสุด
-        price: '',
-        category: '',
-        foodType: '',
-        selectedImage: '',
-      };
-      this.items.push(newItem); // เพิ่ม item ใหม่ลงในอาเรย์
-    }
+  foodcrod() {
+    this.navCtrl.navigateForward('/adminfood');
+  }
+
+  goBack() {
+    this.navCtrl.navigateBack('/food');
   }
 }

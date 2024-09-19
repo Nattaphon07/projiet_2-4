@@ -7,14 +7,16 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./new-page.page.scss'],
 })
 export class NewPagePage {
-  username: string = 'psc'; // ตัวแปรสำหรับชื่อผู้ใช้
-  password: string = 'psc123'; // ตัวแปรสำหรับรหัสผ่าน
+  username: string = ''; // ตัวแปรสำหรับชื่อผู้ใช้
+  password: string = ''; // ตัวแปรสำหรับรหัสผ่าน
 
   correctUsername: string = 'psc'; // ชื่อผู้ใช้ที่ถูกต้อง
   correctPassword: string = 'psc123'; // รหัสผ่านที่ถูกต้อง
 
   constructor(private navCtrl: NavController) {}
-
+  goBack() {
+    this.navCtrl.navigateBack('/home'); // Replace with the appropriate path
+  }
   // ฟังก์ชันในการตรวจสอบชื่อผู้ใช้และรหัสผ่าน
   checkCredentials() {
     if (this.username === this.correctUsername && this.password === this.correctPassword) {
